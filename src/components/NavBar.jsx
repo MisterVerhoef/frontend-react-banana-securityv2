@@ -6,7 +6,7 @@ import logo from '../assets/banana-01.png';
 
 function NavBar() {
   const navigate = useNavigate();
-  const { isAuth, toggleIsAuth } = useContext(AuthContext);
+  const { isAuth, logout} = useContext(AuthContext);
 
   return (
     <nav>
@@ -31,7 +31,7 @@ function NavBar() {
             <button
               type="button"
               onClick={() => {
-                toggleIsAuth(false);
+                logout();
                 navigate('/');
               }}
             >

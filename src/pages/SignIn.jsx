@@ -1,15 +1,16 @@
 import React from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {useContext} from "react";
-import authContext, {AuthContext} from "../context/AuthContext";
+import {AuthContext} from "../context/AuthContext";
 
 function SignIn() {
- const {isAuth, toggleIsAuth} = useContext(AuthContext);
+ // const {isAuth, toggleIsAuth} = useContext(AuthContext);
  const navigate = useNavigate();
+ const {login} = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        toggleIsAuth(true);
+        login({ username: 'user_entered_username', email: 'user_entered_email' });
         navigate('/profile');
         console.log('Logged in');
     };

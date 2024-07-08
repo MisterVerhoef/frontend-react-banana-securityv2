@@ -5,7 +5,7 @@ import {AuthContext} from "../context/AuthContext";
 
 function Profile() {
 
-    const {isAuth} = useContext(AuthContext);
+    const {isAuth, user} = useContext(AuthContext);
 
     if (!isAuth) {
         return <Navigate to="/signin" />;
@@ -16,8 +16,8 @@ function Profile() {
       <h1>Profielpagina</h1>
       <section>
         <h2>Gegevens</h2>
-        <p><strong>Gebruikersnaam:</strong> hardcoded-test</p>
-        <p><strong>Email:</strong> hardcoded@test.com</p>
+<p><strong>Gebruikersnaam:</strong> {user ? user.username : 'Not available'}</p>
+<p><strong>Email:</strong> {user ? user.email : 'Not available'}</p>
       </section>
       <section>
         <h2>Strikt geheime profiel-content</h2>
