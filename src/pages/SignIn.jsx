@@ -1,21 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useContext} from "react";
-import {AuthContext} from "../context/AuthContext";
+import authContext, {AuthContext} from "../context/AuthContext";
 
 function SignIn() {
+ const {isAuth, toggleIsAuth} = useContext(AuthContext);
+ const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        toggleIsAuth(true);
+        navigate('/profile');
+        console.log('Logged in');
+    };
+
+
   return (
-    <>
-      <h1>Inloggen</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
+      <>
+          <h1>Inloggen</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id
+              molestias qui quo unde?</p>
 
-      <form>
-        <p>*invoervelden*</p>
-        <button >Inloggen</button>
-      </form>
+          <form onSubmit={handleSubmit}>
+              <p>*invoervelden*</p>
+              <button type="submit">Inloggen</button>
+          </form>
 
-      <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
-    </>
+          <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
+      </>
   );
 }
 
