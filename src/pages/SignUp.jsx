@@ -10,23 +10,30 @@ function SignUp() {
         doloremque ea eveniet facere fuga illum in numquam quia reiciendis rem sequi tenetur veniam?</p>
 
         <form onSubmit={(e) => e.preventDefault()}>
-  <label htmlFor="username">Gebruikersnaam:</label>
-  <input
-    type="text"
-    id="username"
-    name="username"
-    placeholder="Voer je gebruikersnaam in"
-  />
-  <label htmlFor="password">Wachtwoord:</label>
-  <input
-    type="password"
-    id="password"
-    name="password"
-    placeholder="Voer je wachtwoord in"
-  />
-  <button type="submit">Sign Up</button>
-</form>
-      <p>Heb je al een account? Je kunt je <Link to="/signin">hier</Link> inloggen.</p>
+            <label htmlFor="username">Gebruikersnaam:</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Voer je gebruikersnaam in"
+            />
+            <label htmlFor="email">E-mailadres:</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Voer je e-mailadres in"
+            />
+            <label htmlFor="password">Wachtwoord:</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Voer je wachtwoord in"
+            />
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Heb je al een account? Je kunt je <Link to="/signin">hier</Link> inloggen.</p>
     </>
   );
 }
