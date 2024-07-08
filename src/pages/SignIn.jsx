@@ -21,10 +21,23 @@ function SignIn() {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id
               molestias qui quo unde?</p>
 
-          <form onSubmit={handleSubmit}>
-              <p>*invoervelden*</p>
-              <button type="submit">Inloggen</button>
-          </form>
+         <form onSubmit={handleSubmit}>
+  <label htmlFor="username">Gebruikersnaam:</label>
+  <input
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Voer je gebruikersnaam in"
+  />
+  <label htmlFor="password">Wachtwoord:</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Voer je wachtwoord in"
+  />
+  <button type="submit">Inloggen</button>
+</form>
 
           <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
       </>
