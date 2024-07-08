@@ -1,34 +1,59 @@
-import React from 'react';
-import logo from '../assets/banana-01.png';
+import React, { useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import logo from '../assets/banana-01.png';
+
 
 function NavBar() {
   const navigate = useNavigate();
+  const { isAuth, logout} = useContext(AuthContext);
 
   return (
     <nav>
-        <Link to="/">
-          <span className="logo-container">
-            <img src={logo} alt="logo"/>
-            <h3>
-              Banana Security
-            </h3>
-          </span>
-        </Link>
+      <Link to="/">
+        <span className="logo-container">
+          <img src={logo} alt="logo"/>
+          <h3>
+            Banana Security
+          </h3>
+        </span>
+      </Link>
 
       <div>
-        <button
-          type="button"
-          onClick={() => navigate('/signin')}
-        >
-          Log in
-        </button>
-        <button
-          type="button"
-          onClick={() => navigate('/signup')}
-        >
-          Registreren
-        </button>
+        {isAuth ? (
+          <>
+            <button
+              type="button"
+              onClick={() => navigate('/profile')}
+            >
+              Profiel
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                logout();
+                navigate('/');
+              }}
+            >
+              Log uit
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={() => navigate('/signin')}
+            >
+              Log in
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/signup')}
+            >
+              Registreren
+            </button>
+          </>
+        )}
       </div>
     </nav>
   );

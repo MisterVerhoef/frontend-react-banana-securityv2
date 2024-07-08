@@ -1,14 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
+import {useContext} from "react";
+import {AuthContext} from "../context/AuthContext";
 
 function Profile() {
+
+    const {isAuth, user} = useContext(AuthContext);
+
+    if (!isAuth) {
+        return <Navigate to="/signin" />;
+    }
+
   return (
     <>
       <h1>Profielpagina</h1>
       <section>
         <h2>Gegevens</h2>
-        <p><strong>Gebruikersnaam:</strong> hardcoded-test</p>
-        <p><strong>Email:</strong> hardcoded@test.com</p>
+<p><strong>Gebruikersnaam:</strong> {user ? user.username : 'Not available'}</p>
+<p><strong>Email:</strong> {user ? user.email : 'Not available'}</p>
       </section>
       <section>
         <h2>Strikt geheime profiel-content</h2>
