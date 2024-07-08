@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {useContext} from "react";
+import {AuthContext} from "../context/AuthContext";
 
 function SignIn() {
   return (
@@ -9,7 +11,7 @@ function SignIn() {
 
       <form>
         <p>*invoervelden*</p>
-        <button>Inloggen</button>
+        <button >Inloggen</button>
       </form>
 
       <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>

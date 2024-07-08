@@ -1,7 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
+import {useContext} from "react";
+import {AuthContext} from "../context/AuthContext";
 
 function Profile() {
+
+    const {isAuth} = useContext(AuthContext);
+
+    if (!isAuth) {
+        return <Navigate to="/signin" />;
+    }
+
   return (
     <>
       <h1>Profielpagina</h1>
